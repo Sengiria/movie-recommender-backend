@@ -1,7 +1,7 @@
 from fastapi import FastAPI, HTTPException
-from fastapi_cache2 import FastAPICache
-from fastapi_cache2.backends.inmemory import InMemoryBackend
-from fastapi_cache2.decorator import cache
+from fastapi_cache import FastAPICache
+from fastapi_cache.backends.inmemory import InMemoryBackend
+from fastapi_cache.decorator import cache
 from .data_loader import load_movies
 from .recommender import recommend_movies
 from fastapi.middleware.cors import CORSMiddleware
