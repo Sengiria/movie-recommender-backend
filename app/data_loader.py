@@ -1,12 +1,14 @@
 import json
 import numpy as np
 
-def load_movies(path="data/movies_with_embeddings.json"):
-    with open(path, "r", encoding="utf-8") as f:
+def load_movies(
+    metadata_path="data/movies.json",
+    vectors_path="data/movie_vectors.npy"
+):
+    with open(metadata_path, "r", encoding="utf-8") as f:
         movies = json.load(f)
 
-    # Extract vectors
-    movie_vectors = np.array([movie["embedding"] for movie in movies])
+    movie_vectors = np.load(vectors_path)
 
     # Map movie ID to index in the list
     id_to_index = {str(movie["id"]): idx for idx, movie in enumerate(movies)}

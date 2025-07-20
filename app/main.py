@@ -1,9 +1,13 @@
 from fastapi import FastAPI, HTTPException
+from fastapi_cache2 import FastAPICache
+from fastapi_cache2.backends.inmemory import InMemoryBackend
+from fastapi_cache2.decorator import cache
 from .data_loader import load_movies
 from .recommender import recommend_movies
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.responses import ORJSONResponse
 
-app = FastAPI()
+app = FastAPI(default_response_class=ORJSONResponse)
 
 # Allow frontend origin
 app.add_middleware(
@@ -17,11 +21,16 @@ app.add_middleware(
 # Load movie data on startup
 movies, movie_vectors, id_to_index = load_movies()
 
+@app.on_event("startup")
+async def startup():
+    FastAPICache.init(InMemoryBackend())
+
 @app.get("/ping")
 def ping():
     return {"message": "pong"}
 
 @app.get("/movies")
+@cache(expire=60 * 5)
 def get_movies():
     return movies
 
