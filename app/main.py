@@ -6,6 +6,7 @@ from .data_loader import load_movies
 from .recommender import recommend_movies
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import ORJSONResponse
+from fastapi.middleware.gzip import GZipMiddleware
 
 app = FastAPI(default_response_class=ORJSONResponse)
 
@@ -17,6 +18,8 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
+app.add_middleware(GZipMiddleware, minimum_size=1000)
 
 # Load movie data on startup
 movies, movie_vectors, id_to_index = load_movies()
