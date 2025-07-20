@@ -1,0 +1,24 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.sqlite3
+*.env
+*.egg-info/
+.Python
+
+# Environment
+env/
+venv/
+.env
+.env.*
+
+# VSCode
+.vscode/
+
+# macOS
+.DS_Store
+
+# Jupyter (if you experiment with notebooks)
+.ipynb_checkpoints/
