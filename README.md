@@ -2,6 +2,11 @@
 
 This is the backend for the AI-powered movie recommendation system. It is built using **FastAPI** and provides endpoints to fetch movie data and generate content-based recommendations using precomputed sentence embeddings.
 
+**Live API**: [https://movie-recommender-backend-lhjn.onrender.com](https://movie-recommender-backend-lhjn.onrender.com)
+**Frontend Code**: [GitHub Repository](https://github.com/Sengiria/movie-recommender-frontend)
+
+Visit [/ping](https://movie-recommender-backend-lhjn.onrender.com/ping) to test if the server is online.
+
 ---
 
 ## Tech Stack
