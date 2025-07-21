@@ -44,7 +44,7 @@ Visit [/ping](https://movie-recommender-backend-lhjn.onrender.com/ping) to test 
 ### 1. Clone the repository
 
 ```bash
-git clone https://github.com/your-username/ai-movie-recommender-backend.git
+git clone https://github.com/sengiria/ai-movie-recommender-backend.git
 cd ai-movie-recommender-backend
 ```
 
